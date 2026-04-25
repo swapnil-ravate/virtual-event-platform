@@ -1,0 +1,130 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-family);
+    font-weight: 500;
+    line-height: 1;
+    border-radius: var(--radius-md);
+    /* Slightly more squared than pill */
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid transparent;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Sizes */
+.btn-small {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+}
+
+.btn-medium {
+    padding: 0.625rem var(--spacing-md);
+    font-size: var(--font-size-base);
+}
+
+.btn-large {
+    padding: 0.75rem var(--spacing-lg);
+    font-size: var(--font-size-lg);
+}
+
+/* Primary Variant (Solid, No Gradient) */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Secondary Variant (White with Border) */
+.btn-secondary {
+    background-color: #ffffff;
+    color: var(--color-text-primary);
+    border-color: var(--color-border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+    border-color: var(--color-border-hover);
+    background-color: var(--color-bg-tertiary);
+    /* Slight gray bg */
+    color: var(--color-text-primary);
+}
+
+/* Outline Variant (Primary Color Border) */
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-outline:hover:not(:disabled) {
+    background-color: var(--color-primary-light);
+    /* No solid fill, just light wash */
+    color: var(--color-primary-hover);
+}
+
+/* Ghost Variant (Text only) */
+.btn-ghost {
+    background-color: transparent;
+    color: var(--color-text-secondary);
+    border-color: transparent;
+}
+
+.btn-ghost:hover:not(:disabled) {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+
+
+/* Loading State */
+.btn.loading {
+    color: transparent !important;
+    pointer-events: none;
+    position: relative;
+}
+
+.btn-spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1em;
+    height: 1em;
+    margin-left: -0.5em;
+    margin-top: -0.5em;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: spin 0.75s linear infinite;
+    color: var(--color-text-secondary);
+    /* Default spinner color */
+}
+
+.btn-primary .btn-spinner {
+    color: #ffffff;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
